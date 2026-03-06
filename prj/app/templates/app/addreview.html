@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-4">Napsat recenzi</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Celkové hodnocení (1-5)</label>
+                <input type="number" class="form-control" min="1" max="5" required>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label class="form-label">Maso (1-5)</label>
+                    <input type="number" class="form-control" min="1" max="5">
+                </div>
+                <div class="col">
+                    <label class="form-label">Omáčka (1-5)</label>
+                    <input type="number" class="form-control" min="1" max="5">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Komentář</label>
+                <textarea class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark w-100">Odeslat</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

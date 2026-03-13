@@ -19,3 +19,4 @@ Registrovaný <u>uživatel</u> podstupuje proces autentizace. Tím získává op
 <u>Administrátor</u> přistupuje po přihlášení do zabezpečeného administračního panelu (<u>Dashboardu</u>). Zde provádí globální správu platformy. Rozhraní obsahuje nástroje pro plný přístup k centrální správě uživatelů, moderaci textů a fotografií v recenzích a přímou editaci či zakládání nových záznamů o podnicích.
 ![IMG_20260306_081712](https://github.com/user-attachments/assets/2fe93f93-2286-42f0-82be-5adad7301023)
 ![IMG_20260306_081647](https://github.com/user-attachments/assets/449d96dd-43f3-4efc-8d2f-2773ff0b443e)
+![IMG_20260313_085331](https://github.com/user-attachments/assets/6da1b94f-66a4-48d0-addc-c7be6929623c)

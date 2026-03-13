@@ -1,0 +1,63 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3 border-end pe-3 mb-4">
+        <h4>Filtry</h4>
+        <form>
+            <div class="mb-3">
+                <label class="form-label small">Název podniku</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small">Město</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small">Minimální hodnocení</label>
+                <select class="form-select">
+                    <option value="">Vše</option>
+                    <option value="5">5+ ⭐</option>
+                    <option value="4">4+ ⭐</option>
+                    <option value="3">3+ ⭐</option>
+                    <option value="2">2+ ⭐</option>
+                    <option value="1">1+ ⭐</option>
+                </select>
+            </div>
+             <div class="mb-3">
+                <label class="form-label small">Max. cena (Kč)</label>
+                <input type="number" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-dark w-100">Použít</button>
+        </form>
+    </div>
+
+    <div class="col-md-9 ps-md-4">
+        <h2 class="mb-3">Seznam kebabáren</h2>
+        
+        <div class="card mb-3 border-0 border-bottom rounded-0 pb-2">
+            <div class="card-body px-0 d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title mb-1"><a href="/detail/1" class="text-decoration-none text-dark">Kebab 1</a></h5>
+                    <p class="card-text mb-1 text-muted small">Praha 1</p>
+                </div>
+                <div class="text-end">
+                    <h4 class="mb-0">⭐ 4.7</h4>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-3 border-0 border-bottom rounded-0 pb-2">
+            <div class="card-body px-0 d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title mb-1"><a href="/detail/2" class="text-decoration-none text-dark">Kebab 2</a></h5>
+                    <p class="card-text mb-1 text-muted small">Praha 2</p>
+                </div>
+                <div class="text-end">
+                    <h4 class="mb-0">⭐ 4.3</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

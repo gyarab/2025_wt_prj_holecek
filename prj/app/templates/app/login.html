@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <h2 class="text-center mb-4">Přihlášení</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Uživatelské jméno</label>
+                <input type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Heslo</label>
+                <input type="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-dark w-100">Přihlásit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

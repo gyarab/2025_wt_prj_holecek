@@ -1,24 +1,24 @@
 from django.db import models
 
-class Kebabarna(models.Model):
-    nazev = models.CharField(max_length=200)
-    adresa = models.CharField(max_length=255)
-    mesto = models.CharField(max_length=100)
-    oteviraci_doba = models.CharField(max_length=100)
+class KebabShop(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.CharField(max_length=255)
+    city = models.CharField(max_length=100)
+    opening_hours = models.CharField(max_length=100)
     email = models.EmailField()
-    typ_masa = models.CharField(max_length=100)
+    meat_type = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.nazev
+        return self.name
 
-class Uzivatel(models.Model):
-    jmeno = models.CharField(max_length=100)
-    heslo_hash = models.CharField(max_length=255)
+class User(models.Model):
+    username = models.CharField(max_length=100)
+    password_hash = models.CharField(max_length=255)
     role = models.CharField(max_length=50)
     avatar_url = models.URLField(max_length=500, blank=True, null=True)
-    
-    oblibena_kebabarna = models.ForeignKey(
-        Kebabarna, 
+
+    favorite_kebab_shop = models.ForeignKey(
+        KebabShop, 
         on_delete=models.SET_NULL, 
         null=True, 
         blank=True,
@@ -26,11 +26,11 @@ class Uzivatel(models.Model):
     )
 
     def __str__(self):
-        return self.jmeno
+        return self.username
 
 class Recenze(models.Model):
-    uzivatel = models.ForeignKey(Uzivatel, on_delete=models.CASCADE)
-    kebabarna = models.ForeignKey(Kebabarna, on_delete=models.CASCADE)
+    uzivatel = models.ForeignKey(User, on_delete=models.CASCADE)
+    kebabarna = models.ForeignKey(KebabShop, on_delete=models.CASCADE)
     
     hodnoceni_celkove = models.IntegerField()
     hodnoceni_maso = models.IntegerField()
@@ -38,7 +38,7 @@ class Recenze(models.Model):
     datum_vytvoreni = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Recenze od {self.uzivatel.jmeno} pro {self.kebabarna.nazev}"
+        return f"Recenze od {self.uzivatel.username} pro {self.kebabarna.name}"
 
 class Fotografie(models.Model):
     recenze = models.ForeignKey(
@@ -50,3 +50,4 @@ class Fotografie(models.Model):
 
     def __str__(self):
         return f"Foto k recenzi č. {self.recenze.id}"
+    

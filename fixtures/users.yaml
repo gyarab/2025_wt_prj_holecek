@@ -1,10 +1,13 @@
-users:
-  - id: 1
-    name: Alice
-    email: alice@example.com
-  - id: 2
-    name: Bob
-    email: bob@example.com
-  - id: 3
-    name: Charlie
-    email: charlie@example.com
+- model: auth.user
+  pk: 1
+  fields:
+    username: "alice"
+    email: "alice@example.com"
+    first_name: "Alice"
+
+- model: auth.user
+  pk: 2
+  fields:
+    username: "bob"
+    email: "bob@example.com"
+    first_name: "Bob"

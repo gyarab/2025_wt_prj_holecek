@@ -1,0 +1,49 @@
+- model: app.kebabshop
+  pk: 1
+  fields:
+    name: "U Zlateho Oboji"
+    address: "Kralovska 10"
+    city: "Prague"
+    opening_hours: "10:00-23:00"
+    email: "kontakt@uzlatehooboji.example"
+    meat_type: "lamb"
+
+- model: app.kebabshop
+  pk: 2
+  fields:
+    name: "Kebab Express"
+    address: "Masarykova 45"
+    city: "Brno"
+    opening_hours: "09:00-22:00"
+    email: "info@kebabexpress.example"
+    meat_type: "beef"
+
+- model: app.kebabshop
+  pk: 3
+  fields:
+    name: "Noční Šunka"
+    address: "Nocni 7"
+    city: "Ostrava"
+    opening_hours: "18:00-03:00"
+    email: "noci@nochni.example"
+    meat_type: "chicken"
+
+- model: app.kebabshop
+  pk: 4
+  fields:
+    name: "Veggie Delight"
+    address: "Zelena 2"
+    city: "Prague"
+    opening_hours: "11:00-21:00"
+    email: "veggie@delight.example"
+    meat_type: "vegetarian"
+
+- model: app.kebabshop
+  pk: 5
+  fields:
+    name: "Big Kebab Central"
+    address: "Centralni 1"
+    city: "Brno"
+    opening_hours: "08:00-23:59"
+    email: "central@bigkebab.example"
+    meat_type: "mixed"

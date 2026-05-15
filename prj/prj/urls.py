@@ -1,6 +1,7 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from app import views
+from app.api import api as ninja_api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -10,4 +11,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('detail/<int:pk>/', views.detail, name='detail'),
     path('add-review/<int:pk>/', views.add_review, name='add_review'),
+    # API endpoints mounted under /api/
+    path('api/', ninja_api.urls),
 ]

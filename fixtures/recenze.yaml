@@ -1,0 +1,49 @@
+- model: app.recenze
+  pk: 1
+  fields:
+    uzivatel: 1
+    kebabarna: 1
+    hodnoceni_celkove: 4
+    hodnoceni_maso: 5
+    komentar: "Skvělý kebab, čerstvé ingredience a přátelský personál. Doporučuji!"
+    datum_vytvoreni: "2025-05-01T12:34:56Z"
+
+- model: app.recenze
+  pk: 2
+  fields:
+    uzivatel: 2
+    kebabarna: 2
+    hodnoceni_celkove: 3
+    hodnoceni_maso: 3
+    komentar: "Rychlé a levné, ale maso by mohlo být lépe dochucené."
+    datum_vytvoreni: "2025-04-20T19:10:00Z"
+
+- model: app.recenze
+  pk: 3
+  fields:
+    uzivatel: 3
+    kebabarna: 3
+    hodnoceni_celkove: 5
+    hodnoceni_maso: 5
+    komentar: "Noční směna záchrana! Perfektní chuť v 1 ráno."
+    datum_vytvoreni: "2025-05-10T01:15:00Z"
+
+- model: app.recenze
+  pk: 4
+  fields:
+    uzivatel: 4
+    kebabarna: 4
+    hodnoceni_celkove: 4
+    hodnoceni_maso: 1
+    komentar: "Skvělá vegetariánská varianta — ačkoli maso zde není relevantní."
+    datum_vytvoreni: "2025-03-03T14:00:00Z"
+
+- model: app.recenze
+  pk: 5
+  fields:
+    uzivatel: 5
+    kebabarna: 5
+    hodnoceni_celkove: 2
+    hodnoceni_maso: 2
+    komentar: "Přecpané a rychlé, servírování zrychlené, chutě nejsou extra."
+    datum_vytvoreni: "2025-02-25T20:20:20Z"

@@ -1,0 +1,44 @@
+- model: app.user
+  pk: 1
+  fields:
+    username: "uzivatel1"
+    password_hash: "hashed_pw_1"
+    role: "customer"
+    avatar_url: "https://example.com/avatars/1.png"
+    favorite_kebab_shop: 1
+
+- model: app.user
+  pk: 2
+  fields:
+    username: "owner_brno"
+    password_hash: "hashed_pw_2"
+    role: "owner"
+    avatar_url: "https://example.com/avatars/2.png"
+    favorite_kebab_shop: 2
+
+- model: app.user
+  pk: 3
+  fields:
+    username: "no_obvious"
+    password_hash: "hashed_pw_3"
+    role: "customer"
+    avatar_url: "https://example.com/avatars/3.png"
+    favorite_kebab_shop: 3
+
+- model: app.user
+  pk: 4
+  fields:
+    username: "vegfan"
+    password_hash: "hashed_pw_4"
+    role: "customer"
+    avatar_url: "https://example.com/avatars/4.png"
+    favorite_kebab_shop: 4
+
+- model: app.user
+  pk: 5
+  fields:
+    username: "nightowl"
+    password_hash: "hashed_pw_5"
+    role: "customer"
+    avatar_url: "https://example.com/avatars/5.png"
+    favorite_kebab_shop: 3

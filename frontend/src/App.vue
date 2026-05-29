@@ -1,5 +1,15 @@
 <script setup>
-import
+import { RouterLink, RouterView } from 'vue-router';
+
+
+</script>
+
 <template>
-<h1> tohle je vue </h1>
+    <header>
+        <h1>Kebab App</h1>
+        <RouterLink to="/">Homepage</RouterLink>
+    </header>
+    <main>
+        <RouterView />
+    </main>
 </template>

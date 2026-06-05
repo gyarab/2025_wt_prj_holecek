@@ -1,0 +1,29 @@
+- model: app.fotografie
+  pk: 1
+  fields:
+    recenze: 1
+    url_odkaz: "https://example.com/photos/1.jpg"
+
+- model: app.fotografie
+  pk: 2
+  fields:
+    recenze: 1
+    url_odkaz: "https://example.com/photos/2.jpg"
+
+- model: app.fotografie
+  pk: 3
+  fields:
+    recenze: 3
+    url_odkaz: "https://example.com/photos/3.jpg"
+
+- model: app.fotografie
+  pk: 4
+  fields:
+    recenze: 4
+    url_odkaz: "https://example.com/photos/4.jpg"
+
+- model: app.fotografie
+  pk: 5
+  fields:
+    recenze: 5
+    url_odkaz: "https://example.com/photos/5.jpg"

@@ -11,6 +11,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('detail/<int:pk>/', views.detail, name='detail'),
     path('add-review/<int:pk>/', views.add_review, name='add_review'),
+    path('api-playground/', views.api_playground, name='api_playground'),
     # API endpoints mounted under /api/
     path('api/', ninja_api.urls),
 ]

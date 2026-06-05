@@ -1,0 +1,23 @@
+- model: auth.user
+  pk: 1
+  fields:
+    username: "alice"
+    email: "alice@example.com"
+    first_name: "Alice"
+    is_staff: false
+
+- model: auth.user
+  pk: 2
+  fields:
+    username: "bob"
+    email: "bob@example.com"
+    first_name: "Bob"
+    is_staff: false
+
+- model: auth.user
+  pk: 3
+  fields:
+    username: "charlie"
+    email: "charlie@example.com"
+    first_name: "Charlie"
+    is_staff: false

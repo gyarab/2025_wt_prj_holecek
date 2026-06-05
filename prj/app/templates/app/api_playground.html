@@ -1,0 +1,87 @@
+{% extends "app/base.html" %}
+
+{% block title %}API Playground{% endblock %}
+
+{% block content %}
+<h1>🔧 API Playground</h1>
+
+<p style="text-align: center; margin: 20px 0; color: #666; font-size: 1.05em;">
+  Testujte naše REST API endpointy a seznamte se s asynchronním JavaScriptem (Promise, async/await)
+</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0;">
+  <div class="detail-card">
+    <h2>📋 GET - Seznam Kebabáren</h2>
+    <p style="margin-bottom: 15px; color: #666;">Načtěte seznam všech kebabáren z API</p>
+    <button id="btn-list" class="btn" style="width: 100%;">Načíst seznam</button>
+  </div>
+  
+  <div class="detail-card">
+    <h2>🔍 GET - Detail Kebabárny</h2>
+    <p style="margin-bottom: 10px; color: #666;">Zadejte ID kebabárny (1-5)</p>
+    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+      <input id="detail-id" type="number" placeholder="id" min="1" max="5" style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+      <button id="btn-detail" class="btn" style="flex: 0 0 auto;">Načíst</button>
+    </div>
+  </div>
+</div>
+
+<div class="detail-card" style="margin-top: 30px;">
+  <h3>📊 Výsledek API volání</h3>
+  <div id="status" style="padding: 10px; background: #f0f0f0; border-radius: 4px; margin-bottom: 10px; min-height: 20px; color: #666;">Připraveno…</div>
+  <pre id="output" style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 6px; overflow-x: auto; font-size: 0.9em;">Žádný výstup</pre>
+</div>
+
+<div class="detail-card" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%); margin-top: 30px;">
+  <h2>📚 Dokumentace API</h2>
+  <ul style="margin: 15px 0 0 20px; line-height: 2;">
+    <li><code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">GET /api/kebabshop</code> - Vrátí seznam všech kebabáren</li>
+    <li><code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">GET /api/kebabshop/{id}</code> - Vrátí detail konkrétní kebabárny</li>
+    <li><code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">POST /api/kebabshop</code> - Vytvoří novou kebabárnu</li>
+    <li><code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">PUT /api/kebabshop/{id}</code> - Upraví existující kebabárnu</li>
+  </ul>
+</div>
+
+<script>
+  const out = v => document.getElementById("output").textContent = v;
+  const statusEl = document.getElementById("status");
+
+  async function fetchList() {
+    statusEl.textContent = "Načítám seznam…";
+    try {
+      const res = await fetch('http://127.0.0.1:8000/api/kebabshop');
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+      const data = await res.json();
+      out(JSON.stringify(data, null, 2));
+      statusEl.textContent = `✅ OK - Načteno ${data.length} kebabáren`;
+    } catch (err) {
+      out(`❌ Chyba: ${err.message}`);
+      statusEl.textContent = "Chyba při načítání";
+    }
+  }
+
+  async function fetchDetail(id) {
+    if (!id) {
+      statusEl.textContent = "⚠️ Zadejte ID (1-5)";
+      return;
+    }
+    statusEl.textContent = `Načítám detail ID=${id}…`;
+    try {
+      const res = await fetch(`http://127.0.0.1:8000/api/kebabshop/${id}`);
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+      const data = await res.json();
+      out(JSON.stringify(data, null, 2));
+      statusEl.textContent = `✅ OK - Načten detail: ${data.name}`;
+    } catch (err) {
+      out(`❌ Chyba: ${err.message}`);
+      statusEl.textContent = "Kebabárna nenalezena";
+    }
+  }
+
+  document.getElementById("btn-list").addEventListener("click", fetchList);
+  document.getElementById("btn-detail").addEventListener("click", () => {
+    const id = document.getElementById("detail-id").value;
+    fetchDetail(id);
+  });
+</script>
+{% endblock %}

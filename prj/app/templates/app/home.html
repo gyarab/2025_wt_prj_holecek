@@ -1,63 +1,54 @@
-{% extends 'app/base.html' %}
+{% extends "app/base.html" %}
+
+{% block title %}Kebabárny - Seznam{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-3 border-end pe-3 mb-4">
-        <h4>Filtry</h4>
-        <form>
-            <div class="mb-3">
-                <label class="form-label small">Název podniku</label>
-                <input type="text" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label class="form-label small">Město</label>
-                <input type="text" class="form-control">
-            </div>
-            <div class="mb-3">
-                <label class="form-label small">Minimální hodnocení</label>
-                <select class="form-select">
-                    <option value="">Vše</option>
-                    <option value="5">5+ ⭐</option>
-                    <option value="4">4+ ⭐</option>
-                    <option value="3">3+ ⭐</option>
-                    <option value="2">2+ ⭐</option>
-                    <option value="1">1+ ⭐</option>
-                </select>
-            </div>
-             <div class="mb-3">
-                <label class="form-label small">Max. cena (Kč)</label>
-                <input type="number" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-dark w-100">Použít</button>
-        </form>
-    </div>
+<h1>🌮 Naše Kebabárny</h1>
 
-    <div class="col-md-9 ps-md-4">
-        <h2 class="mb-3">Seznam kebabáren</h2>
+{% if kebabs %}
+  <div class="kebab-grid">
+    {% for kebab in kebabs %}
+      <div class="kebab-card">
+        <span class="meat-badge">{{ kebab.meat_type }}</span>
+        <h3>{{ kebab.name }}</h3>
         
-        <div class="card mb-3 border-0 border-bottom rounded-0 pb-2">
-            <div class="card-body px-0 d-flex justify-content-between align-items-center">
-                <div>
-                    <h5 class="card-title mb-1"><a href="/detail/1" class="text-decoration-none text-dark">Kebab 1</a></h5>
-                    <p class="card-text mb-1 text-muted small">Praha 1</p>
-                </div>
-                <div class="text-end">
-                    <h4 class="mb-0">⭐ 4.7</h4>
-                </div>
+        <div class="kebab-info">
+          <div class="info-row">
+            <span class="emoji">📍</span>
+            <div>
+              <strong>Město:</strong> {{ kebab.city }}
             </div>
+          </div>
+          
+          <div class="info-row">
+            <span class="emoji">🏠</span>
+            <div>
+              <strong>Adresa:</strong> {{ kebab.address }}
+            </div>
+          </div>
+          
+          <div class="info-row">
+            <span class="emoji">🕐</span>
+            <div>
+              <strong>Otevírací doba:</strong> {{ kebab.opening_hours }}
+            </div>
+          </div>
+          
+          <div class="info-row">
+            <span class="emoji">📧</span>
+            <div>
+              <strong>Email:</strong> <a href="mailto:{{ kebab.email }}">{{ kebab.email }}</a>
+            </div>
+          </div>
         </div>
         
-        <div class="card mb-3 border-0 border-bottom rounded-0 pb-2">
-            <div class="card-body px-0 d-flex justify-content-between align-items-center">
-                <div>
-                    <h5 class="card-title mb-1"><a href="/detail/2" class="text-decoration-none text-dark">Kebab 2</a></h5>
-                    <p class="card-text mb-1 text-muted small">Praha 2</p>
-                </div>
-                <div class="text-end">
-                    <h4 class="mb-0">⭐ 4.3</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        <a href="{% url 'detail' kebab.id %}" class="btn">Více informací →</a>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="loading">
+    <p>Žádné kebabárny k dispozici</p>
+  </div>
+{% endif %}
 {% endblock %}

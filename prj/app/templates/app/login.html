@@ -1,20 +1,51 @@
-{% extends 'app/base.html' %}
+{% extends "app/base.html" %}
+
+{% block title %}Přihlášení{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center mt-5">
-    <div class="col-md-4">
-        <h2 class="text-center mb-4">Přihlášení</h2>
-        <form method="POST">
-            <div class="mb-3">
-                <label class="form-label">Uživatelské jméno</label>
-                <input type="text" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Heslo</label>
-                <input type="password" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-dark w-100">Přihlásit</button>
-        </form>
-    </div>
+<div style="max-width: 400px; margin: 60px auto;">
+  <div class="detail-card">
+    <h1 style="text-align: center; margin-bottom: 30px;">🔐 Přihlášení</h1>
+    
+    <form method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+      {% csrf_token %}
+      
+      <div>
+        <label for="username" style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">Uživatelské jméno</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          required 
+          style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 1em;"
+          placeholder="Zadejte vaše jméno"
+        >
+      </div>
+      
+      <div>
+        <label for="password" style="display: block; margin-bottom: 8px; font-weight: 600; color: #333;">Heslo</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          required 
+          style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 1em;"
+          placeholder="Zadejte heslo"
+        >
+      </div>
+      
+      <button 
+        type="submit" 
+        class="btn" 
+        style="margin-top: 20px; font-size: 1.05em;"
+      >
+        Přihlásit se
+      </button>
+    </form>
+    
+    <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.95em;">
+      Demo účty: alice / bob / charlie
+    </p>
+  </div>
 </div>
 {% endblock %}

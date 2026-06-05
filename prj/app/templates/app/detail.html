@@ -1,0 +1,51 @@
+{% extends "app/base.html" %}
+
+{% block title %}{{ kebab.name }} - Detail{% endblock %}
+
+{% block content %}
+<a href="/" class="back-btn">← Zpět na seznam</a>
+
+{% if kebab %}
+  <div class="detail-card">
+    <h1>{{ kebab.name }}</h1>
+    
+    <div class="detail-grid">
+      <div class="detail-item">
+        <strong>ID</strong>
+        <p>{{ kebab.id }}</p>
+      </div>
+      
+      <div class="detail-item">
+        <strong>Město</strong>
+        <p>{{ kebab.city }}</p>
+      </div>
+      
+      <div class="detail-item">
+        <strong>Adresa</strong>
+        <p>{{ kebab.address }}</p>
+      </div>
+      
+      <div class="detail-item">
+        <strong>Otevírací doba</strong>
+        <p>{{ kebab.opening_hours }}</p>
+      </div>
+      
+      <div class="detail-item">
+        <strong>Email</strong>
+        <p><a href="mailto:{{ kebab.email }}">{{ kebab.email }}</a></p>
+      </div>
+      
+      <div class="detail-item">
+        <strong>Typ masa</strong>
+        <p>{{ kebab.meat_type }}</p>
+      </div>
+    </div>
+    
+    <a href="{% url 'add_review' kebab.id %}" class="btn" style="margin-top: 20px;">Napsat recenzi</a>
+  </div>
+{% else %}
+  <div class="loading">
+    <p>Kebabárna nenalezena</p>
+  </div>
+{% endif %}
+{% endblock %}

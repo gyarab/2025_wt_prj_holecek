@@ -29,7 +29,7 @@ npm run dev
 
 # Odborný článek: Projekt KebabTracker
 
-Projekt KebabTracker představuje specializovaný informační <u>systém</u> a webovou <u>aplikaci</u> sloužící k evidenci, lokalizaci a <u>hodnocení</u> gastronomických provozoven, které primárně nabízejí <u>kebab</u>. Jádrem projektu je relační <u>databáze</u> uchovávající detailní záznamy o jednotlivých podnicích, obecně označovaných jako <u>kebabárny</u>.
+Projekt Kebabtracker představuje specializovaný informační <u>systém</u> a webovou <u>aplikaci</u> sloužící k evidenci, lokalizaci a <u>hodnocení</u> gastronomických provozoven, které primárně nabízejí <u>kebab</u>. Jádrem projektu je relační <u>databáze</u> uchovávající detailní záznamy o jednotlivých podnicích, obecně označovaných jako <u>kebabárny</u>.
 
 Z hlediska interakce uživatelských rolí, definovaných architekturou navrženého uživatelského toku (User Flow) a drátěných modelů (Wireframes), systém striktně odděluje tři typy aktérů s odlišnými právy.
 
